@@ -1,12 +1,20 @@
 package lab5.events;
+import State.State;
 
 public abstract class Event {
-    Event next;
-    Object SpecificEvent;
+	private State state;
+	private EventQueue queue;
+	private double time;
+	public Event(State state,EventQueue queue,double time) {
+		this.state=state;
+		this.time=time;
+		this.queue=queue;
+	}
+	public double getTime() {
+		return time;
+	}
+	public abstract void effect();
 
-    public Event(Object SpecificEvent){
-        this.SpecificEvent = SpecificEvent;
-    }
 
 }
 
